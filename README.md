@@ -202,7 +202,7 @@ ui:
 
 #### Deploy to Railway
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonwidget%2Fastrowind)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/Ic0JBh?referralCode=ySCnWl)
 
 ## Related projects
 
