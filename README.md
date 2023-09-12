@@ -15,8 +15,6 @@
 - ✅ **Open Graph tags** for social media sharing.
 - ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
 
-<br>
-
 <img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/screenshot-astro3.png" alt="AstroWind Theme Screenshot">
 
 [![onWidget](https://custom-icon-badges.demolab.com/badge/made%20by%20-onWidget-556bf2?style=flat-square&logo=onwidget&logoColor=white&labelColor=101827)](https://onwidget.com)
@@ -26,8 +24,6 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/onwidget/astrowind/badge.svg?style=flat-square)](https://snyk.io/test/github/onwidget/astrowind)
 [![Stars](https://img.shields.io/github/stars/onwidget/astrowind.svg?style=social&label=stars&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
 [![Forks](https://img.shields.io/github/forks/onwidget/astrowind.svg?style=social&label=forks&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
-
-<br>
 
 <details open>
 <summary>Table of Contents</summary>
