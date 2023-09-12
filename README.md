@@ -32,13 +32,10 @@
 <details open>
 <summary>Table of Contents</summary>
 
-- [Demo](#demo)
 - [Getting started](#getting-started)
   - [Project structure](#project-structure)
   - [Commands](#commands)
   - [Configuration](#configuration)
-  - [Deploy](#deploy)
-- [Frequently Asked Questions](#frequently-asked-questions)
 - [Related Projects](#related-projects)
 - [Contributing](#contributing)
 - [Acknowledgements](#acknowledgements)
