@@ -1,2 +1,0 @@
-[phases.setup]
-    nixpkgsArchive = 'cfdcb8d7fa7ae40616ec304eac07048d5a9e28ea' # https://github.com/NixOS/nixpkgs/commit/cfdcb8d7fa7ae40616ec304eac07048d5a9e28ea
