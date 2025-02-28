@@ -1,8 +1,17 @@
-import fs from 'fs';
-import yaml from 'js-yaml';
 import merge from 'lodash.merge';
 
 import type { MetaData } from '~/types';
+
+export type Config = {
+  site?: SiteConfig;
+  metadata?: MetaDataConfig;
+  i18n?: I18NConfig;
+  apps?: {
+    blog?: AppBlogConfig;
+  };
+  ui?: unknown;
+  analytics?: unknown;
+};
 
 export interface SiteConfig {
   name: string;
@@ -25,6 +34,8 @@ export interface I18NConfig {
 export interface AppBlogConfig {
   isEnabled: boolean;
   postsPerPage: number;
+  isRelatedPostsEnabled: boolean;
+  relatedPostsCount: number;
   post: {
     isEnabled: boolean;
     permalink: string;
@@ -67,20 +78,13 @@ export interface AnalyticsConfig {
   };
 }
 
-const config = yaml.load(fs.readFileSync('src/config.yaml', 'utf8')) as {
-  site?: SiteConfig;
-  metadata?: MetaDataConfig;
-  i18n?: I18NConfig;
-  apps?: {
-    blog?: AppBlogConfig;
-  };
-  ui?: unknown;
-  analytics?: unknown;
-};
+export interface UIConfig {
+  theme: string;
+}
 
 const DEFAULT_SITE_NAME = 'Website';
 
-const getSite = () => {
+const getSite = (config: Config) => {
   const _default = {
     name: DEFAULT_SITE_NAME,
     site: undefined,
@@ -93,8 +97,8 @@ const getSite = () => {
   return merge({}, _default, config?.site ?? {}) as SiteConfig;
 };
 
-const getMetadata = () => {
-  const siteConfig = getSite();
+const getMetadata = (config: Config) => {
+  const siteConfig = getSite(config);
 
   const _default = {
     title: {
@@ -114,7 +118,7 @@ const getMetadata = () => {
   return merge({}, _default, config?.metadata ?? {}) as MetaDataConfig;
 };
 
-const getI18N = () => {
+const getI18N = (config: Config) => {
   const _default = {
     language: 'en',
     textDirection: 'ltr',
@@ -122,20 +126,15 @@ const getI18N = () => {
 
   const value = merge({}, _default, config?.i18n ?? {});
 
-  return Object.assign(value, {
-    dateFormatter: new Intl.DateTimeFormat(value.language, {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      timeZone: 'UTC',
-    }),
-  }) as I18NConfig;
+  return value as I18NConfig;
 };
 
-const getAppBlog = () => {
+const getAppBlog = (config: Config) => {
   const _default = {
     isEnabled: false,
     postsPerPage: 6,
+    isRelatedPostsEnabled: false,
+    relatedPostsCount: 4,
     post: {
       isEnabled: true,
       permalink: '/blog/%slug%',
@@ -173,17 +172,15 @@ const getAppBlog = () => {
   return merge({}, _default, config?.apps?.blog ?? {}) as AppBlogConfig;
 };
 
-const getUI = () => {
+const getUI = (config: Config) => {
   const _default = {
     theme: 'system',
-    classes: {},
-    tokens: {},
   };
 
   return merge({}, _default, config?.ui ?? {});
 };
 
-const getAnalytics = () => {
+const getAnalytics = (config: Config) => {
   const _default = {
     vendors: {
       googleAnalytics: {
@@ -196,9 +193,11 @@ const getAnalytics = () => {
   return merge({}, _default, config?.analytics ?? {}) as AnalyticsConfig;
 };
 
-export const SITE = getSite();
-export const I18N = getI18N();
-export const METADATA = getMetadata();
-export const APP_BLOG = getAppBlog();
-export const UI = getUI();
-export const ANALYTICS = getAnalytics();
+export default (config: Config) => ({
+  SITE: getSite(config),
+  I18N: getI18N(config),
+  METADATA: getMetadata(config),
+  APP_BLOG: getAppBlog(config),
+  UI: getUI(config),
+  ANALYTICS: getAnalytics(config),
+});

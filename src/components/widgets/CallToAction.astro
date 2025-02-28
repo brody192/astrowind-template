@@ -2,7 +2,7 @@
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import type { CallToAction, Widget } from '~/types';
 import Headline from '~/components/ui/Headline.astro';
-import Button from "~/components/ui/Button.astro"
+import Button from '~/components/ui/Button.astro';
 
 interface Props extends Widget {
   title?: string;
@@ -22,7 +22,7 @@ const {
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
-} = Astro.props as Props;
+} = Astro.props;
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
@@ -35,7 +35,7 @@ const {
       tagline={tagline}
       classes={{
         container: 'mb-0 md:mb-0',
-        title: 'text-4xl md:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading',
+        title: 'text-4xl md:text-4xl font-bold tracking-tighter mb-4 font-heading',
         subtitle: 'text-xl text-muted dark:text-slate-400',
       }}
     />
