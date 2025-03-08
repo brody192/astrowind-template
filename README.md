@@ -7,6 +7,8 @@ tags:
   - TypeScript
 ---
 
+### Astro
+
 This Project was created with - `npm create astro@latest -- --template basics`
 
 To get more help on the Astro CLI use go check out the [Astro CLI Overview and Command Reference](https://docs.astro.build/en/reference/cli-reference/) page.
