@@ -1,75 +1,49 @@
 ---
-title: AstroWind
-description: The default AstroWind template with some needed modifications
+title: Astro
+description: The basic Astro template
 tags:
   - Node
-  - Astro 5.0
-  - AstroWind
+  - Astro 5
   - TypeScript
 ---
 
-# AstroWind
-
-This project was originally forked from https://github.com/onwidget/astrowind.
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.com/template/Ic0JBh)
-
-## ✨ Features
-
-- ✅ Production-ready scores in PageSpeed Insights reports.
-- ✅ Integration with Tailwind CSS supporting Dark mode and RTL.
-- ✅ Fast and SEO friendly blog with automatic RSS feed, MDX support, Categories & Tags, Social Share, ...
-- ✅ Image Optimization (using new Astro Assets and Unpic for Universal image CDN).
-- ✅ Generation of project sitemap based on your routes.
-- ✅ Open Graph tags for social media sharing.
-- ✅ Analytics built-in Google Analytics, and Splitbee integration.
-
-## 💁‍♀️ Local Development
-
-- Install required dependencies with `npm install`
-- Run `npm run dev` for a local development server
-- Navigate to `http://127.0.0.1:4321/`. The application will automatically reload if you change any of the source files.
+This Project was created with - `npm create astro@latest -- --template basics`
 
 To get more help on the Astro CLI use go check out the [Astro CLI Overview and Command Reference](https://docs.astro.build/en/reference/cli-reference/) page.
 
-## ❓ What was changed from the default AstroWind example?
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.com/template/Ic0JBh)
 
-#### Useing the Node adapter with the `server` output mode is an easy way to get your Astro site running on Railway effciently.
+## 🚀 Project Structure
 
-1. Install the Node adadpter
+Inside of your Astro project, you'll see the following folders and files:
 
-    `npm i @astrojs/node`
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-2. Import the Node adapter
+To learn more about the folder structure of an Astro project, refer to [their guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-    Under the `defineConfig` import line paste the import for the Node adapter.
+## 🧞 Commands
 
-    `import node from '@astrojs/node';`
+All commands are run from the root of the project, from a terminal:
 
-3. Set the output to `server` and the host to `0.0.0.0`
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-    Paste this into the `astro.config.ts` file with the `defineConfig` object -
+## 👀 Want to learn more?
 
-    ```javascript
-    output: 'server',
-    adapter: node({
-      mode: 'standalone',
-    }),
-
-    server: {
-      host: '0.0.0.0'
-    },
-    ```
-
-4. Update the start script
-
-    In the `package.json` set the `start` script to -
-
-    `node ./dist/server/entry.mjs`
-
-    This will start the server in production mode.
-
-
-Railway will automatically use the `build` and `start` scripts from the package.json.
-
-Thats all the changes needed to deploy an Astro app on Railway!
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
